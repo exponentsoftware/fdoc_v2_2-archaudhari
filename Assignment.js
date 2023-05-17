@@ -105,4 +105,10 @@ const students = [
     { name, age, Grade }) => ({ name, age, Grade }));
   console.log(partialStudentDetails);
 
-  
+// This line uses the map function on the studentDetails array. The map function iterates over each object in the array and applies a transformation defined by the provided arrow function.
+
+// The arrow function is ( { name, age, Grade } ) => ({ name, age, Grade }). It uses object destructuring to extract the name, age, and Grade properties from each object in the studentDetails array.
+
+// The arrow function then returns a new object containing only the extracted properties name, age, and Grade. This new object is created using object shorthand notation.
+
+// The resulting array of transformed objects is assigned to the partialStudentDetails variable.
