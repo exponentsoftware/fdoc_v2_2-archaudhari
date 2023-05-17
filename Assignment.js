@@ -144,3 +144,15 @@ updateStudent("Emma", { age: 18 }); // Updates Emma's age to 18
 updateStudent("David", { age: 20 }); // Student David not found
 
 console.log(students); // Prints the updated students array
+
+
+// In this approach, the findTopStudents function loops through the students array using a for...of loop. It calculates the average grade for each student and checks if it is above the specified threshold, pushing the student into the topStudents array if it meets the criteria.
+
+// The addHobby and updateStudent functions use the find method to locate the student by name and perform the required operations if the student is found.
+
+// This alternative approach achieves the same functionality as the previous examples but with simpler implementations using basic JavaScript functions and loops.
+
+
+
+
+
