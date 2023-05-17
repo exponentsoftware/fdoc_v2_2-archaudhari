@@ -82,33 +82,65 @@ const students = [
   
   updateStudent(students, 'Alice', { age: 20, grades: [90, 80, 95], hobbies: ['reading', 'painting'] });
   // Output: Updates the student with name 'Alice' to have age 20, new grades, and updated hobbies array
-  let = studentDetails = [
-    {
-      name: 'dinesh',
-      age: 20,
-      marks: 30,
-      Grade: 'F'
-    },
-    {
-      name: 'divi',
-      age: 20,
-      marks: 60,
-      Grade: 'B'
-    },
-    {
-      name: 'vignesh',
-      age: 30,
-      marks: 80,
-      Grade: 'A'
-    }]
-  let partialStudentDetails = studentDetails.map((
-    { name, age, Grade }) => ({ name, age, Grade }));
-  console.log(partialStudentDetails);
+  
+const students = [
+  {
+    name: "John",
+    age: 18,
+    grades: [85, 90, 92],
+    hobbies: ["reading", "painting"]
+  },
+  {
+    name: "Emma",
+    age: 17,
+    grades: [95, 88, 91],
+    hobbies: ["playing guitar", "swimming"]
+  },
+  {
+    name: "Michael",
+    age: 19,
+    grades: [78, 86, 80],
+    hobbies: ["coding", "playing basketball"]
+  }
+];
 
-// This line uses the map function on the studentDetails array. The map function iterates over each object in the array and applies a transformation defined by the provided arrow function.
+// findTopStudents function
+function findTopStudents(threshold) {
+  return students.filter(student => {
+    const averageGrade = student.grades.reduce((sum, grade) => sum + grade, 0) / student.grades.length;
+    return averageGrade > threshold;
+  });
+}
 
-// The arrow function is ( { name, age, Grade } ) => ({ name, age, Grade }). It uses object destructuring to extract the name, age, and Grade properties from each object in the studentDetails array.
+// addHobby function
+function addHobby(studentName, hobby) {
+  const student = students.find(student => student.name === studentName);
+  if (student) {
+    student.hobbies.push(hobby);
+    console.log(`Added ${hobby} to ${studentName}'s hobbies.`);
+  } else {
+    console.log(`Student ${studentName} not found.`);
+  }
+}
 
-// The arrow function then returns a new object containing only the extracted properties name, age, and Grade. This new object is created using object shorthand notation.
+// updateStudent function
+function updateStudent(studentName, updatedInfo) {
+  const student = students.find(student => student.name === studentName);
+  if (student) {
+    Object.assign(student, updatedInfo);
+    console.log(`Updated ${studentName}'s information.`);
+  } else {
+    console.log(`Student ${studentName} not found.`);
+  }
+}
 
-// The resulting array of transformed objects is assigned to the partialStudentDetails variable.
+// Usage examples
+console.log(findTopStudents(90)); // Returns students with average grade above 90
+
+addHobby("John", "playing piano"); // Adds "playing piano" to John's hobbies
+addHobby("Sarah", "drawing"); // Student Sarah not found
+
+updateStudent("Emma", { age: 18 }); // Updates Emma's age to 18
+updateStudent("David", { age: 20 }); // Student David not found
+
+console.log(students); // Prints the updated students array
